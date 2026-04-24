@@ -10,13 +10,13 @@ Route::get('/', function () {
     return view('welcome'); // Or whatever your dashboard view is named
 })->name('welcome');
 
-Route::get('/course/register', function () {
-    // Fetch the students
-    $students = Student::all(['roll_no', 'first_name', 'last_name']);
+// 3. Student Registration (Personal Info)
+Route::get('/student/register', [RegistryController::class, 'studentForm'])->name('student.form');
+Route::post('/student/register', [RegistryController::class, 'storeStudent'])->name('student.store');
 
-    // Pass them to the view
-    return view('course_register', compact('students'));
-});
+// 4. Course Enrollment (The "Logic" Fix)
+Route::get('/course/register', [RegistryController::class, 'courseForm'])->name('course.form');
+Route::post('/course/register', [RegistryController::class, 'storeCourse'])->name('course.store');
 
 Route::get('/test-db', function () {
     try {

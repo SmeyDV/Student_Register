@@ -23,11 +23,8 @@ class RegistryController extends Controller
     // --- 2. COURSE REGISTRATION ---
     public function courseForm()
     {
-        // 2. Fetch the students from MongoDB
-        $students = Student::all(['roll_no', 'first_name', 'last_name']);
-
-        // 3. Pass them to the view
-        return view('course_register', compact('students'));
+        // The user must type their Roll Number manually in the form.
+        return view('course_register');
     }
 
     public function storeCourse(Request $request)

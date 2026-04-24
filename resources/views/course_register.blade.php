@@ -26,24 +26,14 @@
 
             <div class="space-y-5">
                 <div>
-                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Select Student</label>
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Student Roll Number</label>
                     <div class="relative">
-                        <select name="roll_no" required
-                            class="w-full bg-slate-950/50 text-slate-200 border border-slate-800 rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 transition-all shadow-inner appearance-none cursor-pointer">
-
-                            <option value="" class="bg-slate-900 text-slate-400">-- Select a Student --</option>
-
-                            @foreach($students as $student)
-                            <option value="{{ $student->roll_no }}" class="bg-slate-900 text-slate-200">
-                                {{ $student->roll_no }} &mdash; {{ $student->first_name }} {{ $student->last_name }}
-                            </option>
-                            @endforeach
-
-                        </select>
+                        <input type="text" name="roll_no" placeholder="Enter Roll Number" required
+                            class="w-full bg-slate-950/50 text-slate-200 border border-slate-800 rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 transition-all shadow-inner placeholder:text-slate-600">
 
                         <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none">
-                            <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                             </svg>
                         </div>
                     </div>
@@ -75,6 +65,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                 </svg>
             </button>
+
             <button type="button" onclick="window.location='{{ route('welcome') }}'"
                 class="mt-4 w-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-cyan-500/50 font-bold py-3.5 px-8 rounded-xl shadow-lg transition-all duration-300 active:scale-[0.98] flex justify-center items-center gap-2 group">
                 <span>Back to Dashboard</span>
